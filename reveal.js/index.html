@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px">
+						<h1 style="font-family: monospace">&lt;CANVAS&gt;</h1>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>What is canvas?</h4>
+						<p style="font-size: 22px">Canvas is an HTML element which can be used to draw graphics via scripting. This can be used to draw graphs, combine photos,
+							or create simple or not animations.</p>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>A little bit about canvas history</h4>
+						<p style="font-size: 22px">Canvas was initially introduced by Apple for use in their own Mac OS X WebKit component in 2004, powering applications like Dashboard widgets
+							and the Safari browser. Later, in 2005 it was adopted in version 1.8 of Gecko browsers, and Opera in 2006, and standardized
+							by the Web Hypertext Application Technology Working Group on new proposed specifications for next generation web technologies.</p>
+						<img style="position: absolute; top: 100%; left: 60%; transform: rotate(-20deg)" width="250px" height="180px" src="examples/assets/history.jpg" alt="history">
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>Disadvantages and advantages</h4>
+						<div style="display: flex">
+							<div>
+								<p>Disadvantages</p>
+								<ul style="font-size: 22px">
+									<li>Canvas loads the processor and RAM very much</li>
+									<li>Due to a limitation of the garbage collector, there is no way to clear memory</li>
+									<li>You need to handle events with objects yourself</li>
+									<li>Poor performance at high resolution</li>
+									<li>You have to draw each element separately</li>
+									<li>The ability to create special "beacons" on the pages, the so-called Canvas Fingerprinting, to track users on the network</li>
+								</ul>
+							</div>
+							<div style="width: 30px"></div>
+							<div>
+								<p>Advantages</p>
+								<ul style="font-size: 22px">
+									<li>Unlike SVG, it is much more convenient to deal with a large number of elements</li>
+									<li>Canvas has hardware acceleration</li>
+									<li>You can manipulate each pixel</li>
+									<li>You can apply image processing filters</li>
+									<li>There are many libraries that can help you to use canvas better => big community</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>Usage of canvas</h4>
+						<p style="font-size: 22px">A canvas consists of a drawable region defined in HTML code with height and width attributes.
+							JavaScript code may access the area through a full set of drawing functions. Some anticipated uses of canvas include building graphs, animations, games, and image composition.</p>
+						<div style="display: flex; justify-content: space-around">
+							<img style="width: 230px; height: auto" src="examples/assets/responsive_game.png" alt="game">
+							<img style="width: 230px; height: auto" src="examples/assets/composition.jpg" alt="image composition">
+							<img style="width: 230px; height: auto" src="examples/assets/graphs.jpg" alt="graphs">
+						</div>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>First steps in canvas</h4>
+						<p style="font-size: 22px">To use this technology you need to create canvas element in your html code</p>
+						<p style="font-size: 22px">Example: <code style="background-color: rgba(255, 255, 255,0.5)">&lt;canvas id="canvas" width="150" height="150"&gt;&lt;/canvas&gt;</code></p>
+						<p style="font-size: 22px">At first sight a canvas looks like the img element, with the only clear difference being that it doesn't have the src and alt attributes.
+							Indeed, the canvas element has only two attributes, width and height. These are both optional and can also be set using DOM properties.
+							When no width and height attributes are specified, the canvas will initially be 300 pixels wide and 150 pixels high. The element can be sized arbitrarily by CSS,
+							but during rendering the image is scaled to fit its layout size: if the CSS sizing doesn't respect the ratio of the initial canvas, it will appear distorted.</p>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>Connect with JavaScript</h4>
+						<p style="font-size: 22px">Then you need to create a javascript file, to revive your canvas element</p>
+						<p style="font-size: 22px">
+							<code style="background-color: rgba(255, 255, 255,0.5); display: flex; justify-content: left; width: 800px; margin: 0 auto">
+								const canvas = document.getElementById('canvas');
+							</code>
+							<code style="background-color: rgba(255, 255, 255,0.5); display: flex; justify-content: left; width: 800px; margin: 0 auto">
+								const ctx = canvas.getContext('2d');
+							</code>
+						</p>
+						<p style="font-size: 22px">
+							The first line in the script retrieves the node in the DOM representing the canvas element by calling the document.getElementById() method.
+							Once you have the element node, you can access the drawing context using its getContext() method.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>Checking for support</h4>
+						<p style="font-size: 22px">The fallback content is displayed in browsers which do not support canvas.
+							Scripts can also check for support programmatically by testing for the presence of the getContext() method.
+							You can check it this way:</p>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto">
+							const canvas = document.getElementById('canvas');
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto">
+							if (canvas.getContext) {
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto; padding-left: 30px; box-sizing: border-box">
+							const ctx = canvas.getContext('2d');
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto; padding-left: 30px; box-sizing: border-box">
+							...
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto">
+							} else {
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto; padding-left: 30px; box-sizing: border-box">
+							// if canvas is unsupported you can write some code right here
+						</code>
+						<code style="background-color: rgba(255, 255, 255,0.5); font-size: 22px; display: flex; justify-content: left; width: 800px; margin: 0 auto">
+							}
+						</code>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>Browser support</h4>
+						<p style="font-size: 22px">The element is supported by the current versions of Mozilla Firefox, Google Chrome, Internet Explorer, Safari, Opera and Microsoft Edge.</p>
+						<div style="display: flex; justify-content: space-around">
+							<img src="examples/assets/mozilla.svg" width="80px" height="80px" alt="">
+							<img src="examples/assets/chrome.svg" width="80px" height="80px" alt="">
+							<img src="examples/assets/safari.svg" width="80px" height="80px" alt="">
+							<img src="examples/assets/opera.svg" width="80px" height="80px" alt="">
+							<img src="examples/assets/explorer.svg" width="80px" height="80px" alt="">
+							<img src="examples/assets/edge.svg" width="80px" height="80px" alt="">
+						</div>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4 style="margin-top: 15px; margin-bottom: 0">JavaScript canvas libraries and frameworks</h4>
+						<div style="display: flex; justify-content: space-between; align-items: center; width: 400px; margin: 0 auto">
+							<a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0; text-align: left" href="https://phaser.io/">Phaser</a>
+							<img src="examples/assets/phaser.png" width="100px" height="80px" alt="phaser">
+						</div>
+						<div style="display: flex; justify-content: space-between; align-items: center; width: 400px; margin: 0 auto">
+							<a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0; text-align: left" href="https://p5js.org/">P5js</a>
+							<img src="examples/assets/p5.png" width="100px" height="80px" alt="phaser">
+						</div>
+						<div style="display: flex; justify-content: space-between; align-items: center; width: 400px; margin: 0 auto">
+							<a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0; text-align: left" href="https://createjs.com/">CREATEJS</a>
+							<img src="examples/assets/createjs.jpg" width="100px" height="80px" alt="phaser">
+						</div>
+						<div style="display: flex; justify-content: space-between; align-items: center; width: 400px; margin: 0 auto">
+							<a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0; text-align: left" href="http://paperjs.org/about/">PaperJS</a>
+							<img src="examples/assets/PaperJS.jpg" width="100px" height="80px" alt="phaser">
+						</div>
+						<div style="display: flex; justify-content: space-between; align-items: center; width: 400px; margin: 0 auto">
+							<a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0; text-align: left" href="https://www.chartjs.org/">Chart.js</a>
+							<img src="examples/assets/chartjs.svg" width="100px" height="80px" alt="phaser">
+						</div>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px; font-family: monospace">
+						<h4>What can you make with canvas?</h4>
+						<div style="width: 600px; margin: 0 auto">
+							<p style="font-size: 22px; text-align: left">Websites</p>
+							<ul style="list-style: none;">
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://dataveyes.com/en">https://dataveyes.com/en</a></li>
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://dragonflydigital.co.za/">https://dragonflydigital.co.za/</a></li>
+							</ul>
+						</div>
+						<div style="width: 600px; margin: 0 auto">
+							<p style="font-size: 22px; text-align: left">Games</p>
+							<ul style="list-style: none;">
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://codepen.io/Loopez10/pen/dMaVdQ">https://codepen.io/Loopez10/pen/dMaVdQ</a></li>
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://codepen.io/1franck/pen/vLruJ">https://codepen.io/1franck/pen/vLruJ</a></li>
+							</ul>
+						</div>
+						<div style="width: 600px; margin: 0 auto">
+							<p style="font-size: 22px; text-align: left">Cool animations</p>
+							<ul style="list-style: none;">
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://codepen.io/MarcoGuglielmelli/pen/lLCxy">https://codepen.io/MarcoGuglielmelli/pen/lLCxy</a></li>
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://codepen.io/ara_node/pen/nuJCG">https://codepen.io/ara_node/pen/nuJCG</a></li>
+							</ul>
+						</div>
+						<div style="width: 600px; margin: 0 auto">
+							<p style="font-size: 22px; text-align: left">Tutorials</p>
+							<ul style="list-style: none;">
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">Learn canvas with MDN</a></li>
+								<li style="text-align: center; line-height: 22px"><a target="_blank" style="font-size: 22px; color: white; text-decoration: underline; margin-bottom: 0" href="https://www.youtube.com/playlist?list=PLpPnRKq7eNW3We9VdCfx9fprhqXHwTPXL">Youtube tutorials</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section data-background-image="https://ak.picdn.net/shutterstock/videos/31579318/thumb/1.jpg" style="width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover">
+					<div style="position:relative; top: 50%; transform: translate(0, -50%); padding-left: 20px; padding-right: 20px">
+						<h1 style="font-family: monospace">Thanks for watching!</h1>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
